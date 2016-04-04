@@ -23,45 +23,29 @@ class Rover
   end
 
 
-  def turn(new_direction)
-    if new_direction == "L"
-      if @direction == "N" then @direction = "W" end
-      end
+  def turn(angle)
+    if angle == "L" && @direction == "N"
+      @direction = "W"
+    elsif angle == "L" && @direction == "W"
+       @direction = "S"
+    elsif angle == "L" && @direction == "S"
+       @direction = "E"
+    elsif angle == "L" && @direction == "E"
+      @direction = "N"
+    end
 
 
 
-    if new_direction == "L"
-      if @direction == "W" then @direction = "S" end
-      end
 
-
-
-    if new_direction == "L"
-      if @direction == "S" then @direction = "E" end
-      end
-
-
-    if new_direction == "L"
-      if @direction == "E" then @direction = "N" end
-      end
-
-
-    if new_direction == "R"
-    if @direction == "N" then @direction = "E" end
-      end
-
-
-    if new_direction == "R"
-      if @direction == "E" then @direction = "S" end
-      end
-
-    if new_direction == "R"
-      if @direction == "S" then @direction = "W" end
-      end
-
-    if new_direction == "R"
-      if @direction == "W" then @direction = "N" end
-      end
+    if angle == "R" && @direction == "N"
+      @direction = "E"
+    elsif angle == "R" && @direction == "E"
+      @direction = "S"
+    elsif angle == "R" && @direction == "S"
+      @direction = "W"
+    elsif angle == "R" && @direction == "W"
+      @direction = "N"
+    end
 
 
   end
@@ -73,5 +57,5 @@ end
 
 rover = Rover.new(5,2,"N")
 rover.move
-rover.turn("R")
+rover.turn("L")
 rover.current_position
